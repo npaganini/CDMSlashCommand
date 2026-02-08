@@ -9,7 +9,7 @@ local CooldownViewerSettings = _G.CooldownViewerSettings
 -- Don't register /wa if WeakAuras is loaded
 local waLoaded = IsAddOnLoaded('WeakAuras')
 if waLoaded then
-	print('Cooldown Manager Slash Command: WeakAuras AddOn detected, only registering /cd and skipping /wa')
+	print('CDM Slash Command: WeakAuras AddOn detected, only registering /cdm and skipping /wa')
 end
 
 local function ShowCooldownViewerSettings()
@@ -22,8 +22,18 @@ local function ShowCooldownViewerSettings()
 	end
 end
 
-SLASH_CDMSC1 = '/cd'
-SLASH_CDMSC2 = not waLoaded and '/wa' or nil
-function SlashCmdList.CDMSC(msg, editbox)
-	ShowCooldownViewerSettings()
+function CDMSlashCommand:InitializeSlashCommands()
+	for _, cmd in ipairs(CDMSlashCommandDB) do
+		if cmd == "wa" then
+			if not waLoaded then
+				self:RegisterChatCommand(cmd, function(_, input)
+					ShowCooldownViewerSettings()
+				end)
+			end
+		else
+			self:RegisterChatCommand(cmd, function(_, input)
+				ShowCooldownViewerSettings()
+			end)
+		end
+	end
 end
