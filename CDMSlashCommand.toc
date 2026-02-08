@@ -1,7 +1,7 @@
 ## Interface: 120000, 120001
 ## Version: @project-version@
 ## Title: CDM Slash Command
-## Notes: Use /cdm or /wa to open Blizzard's Cooldown Manager
+## Notes: Access Blizzard's Cooldown Manager with a Slash Command set through options
 ## DefaultState: enabled
 ## Author: Kara of Kel'thuzad (previous version by Luckyone)
 ## IconTexture: Interface\Addons\CDMSlashCommand\Texture\icon-texture-cdmsc
