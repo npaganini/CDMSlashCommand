@@ -1,4 +1,4 @@
-## Interface: 120005
+## Interface: 120007
 ## Title: CDM Slash Command
 ## Notes: Access Blizzard's Cooldown Manager with a Slash Command set through options
 ## DefaultState: enabled
